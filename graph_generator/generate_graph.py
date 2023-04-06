@@ -12,7 +12,7 @@ def parse_row(row):
     print(0)
 
 def parse_sample_name(inst):
-    m = re.search(r'(?P<year>[0-9]{2})(?P<location>[A-Za-z]+)(?P<samplenum>[0-9]{2,3})(?P<inclusion>[I]?)-(?P<crystalnum>[A-Za-z0-9]+)([\-]{1})?(?P<distance>[a-zA-Z0-9]+)?([\-]{1})?(?P<duplicate>[0-3]+)?', inst)
+    m = re.search(r'(?P<year>[0-9]{2})(?P<location>[A-Za-z]+)(?P<samplenum>[0-9]{2,3})(?P<inclusion>[-]?[I]?)-(?P<crystalnum>[A-Za-z0-9]+)([\-]{1})?(?P<distance>[a-zA-Z0-9]+)?([\-]{1})?(?P<duplicate>[0-3]+)?', inst)
     m2 = re.search(r'ALMA-PL([AG]?){0,2}(?P<crystalnum>[0-9]{2})', inst)
 
     if m:
@@ -23,7 +23,7 @@ def parse_sample_name(inst):
             "crystal_num": m.group('crystalnum'),
             "distance": m.group('distance'),
             "duplicate": m.group('duplicate'),
-            "inclusion": m.group('inclusion') == "I"
+            "inclusion": m.group('inclusion') == "-I"
         }
 
     if m2:
