@@ -60,16 +60,16 @@ def graph(data, sample_name):
     # set font to times new roman 
     plt.rcParams['font.family'] = 'Times New Roman'
     
-    plt.title(sample_name, fontsize=18)
+    plt.title(sample_name, fontsize=24)
     ax.set_ylabel('An')
     ax.set_xlabel('Distance μm')
 
     # Set the title font size
-    ax.xaxis.label.set_fontsize(16)
-    ax.yaxis.label.set_fontsize(16)
+    ax.xaxis.label.set_fontsize(18)
+    ax.yaxis.label.set_fontsize(18)
 
     # Set the tick label font size
-    ax.tick_params(axis='both', which='major', labelsize=14)
+    ax.tick_params(axis='both', which='major', labelsize=18)
     
     ax.set_xlim(xmin=0)
     ax.set_ylim([40, 100])
