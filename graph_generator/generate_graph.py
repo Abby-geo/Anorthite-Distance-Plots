@@ -57,22 +57,22 @@ def graph(data, sample_name):
 
     ax.plot(*zip(*data), 'o-', linewidth=2.0)
     
-    plt.title(sample_name, fontsize=28)
+    plt.title(sample_name, fontsize=26)
     ax.set_ylabel('An')
     ax.set_xlabel('Distance μm')
 
     # Set the title font size
-    ax.xaxis.label.set_fontsize(22)
-    ax.yaxis.label.set_fontsize(22)
+    ax.xaxis.label.set_fontsize(24)
+    ax.yaxis.label.set_fontsize(24)
 
     # Set the tick label font size
-    ax.tick_params(axis='both', which='major', labelsize=20)
+    ax.tick_params(axis='both', which='major', labelsize=22)
 
     # set image size 
-    fig.set_size_inches(7, 7)
+    fig.set_size_inches(7, 6)
 
     # set graph size margins 
-    plt.subplots_adjust(left=0.13, bottom=0.11, right=0.95, top=.92, wspace=0.2, hspace=0.2)
+    plt.subplots_adjust(left=0.15, bottom=0.13, right=0.95, top=.92, wspace=0.2, hspace=0.2)
 
     ax.set_xlim(xmin=0)
     ax.set_ylim([40, 100])
