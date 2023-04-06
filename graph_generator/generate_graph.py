@@ -56,23 +56,29 @@ def graph(data, sample_name):
     fig, ax = plt.subplots()
 
     ax.plot(*zip(*data), 'o-', linewidth=2.0)
-
-    # set font to times new roman 
-    plt.rcParams['font.family'] = 'Times New Roman'
     
-    plt.title(sample_name, fontsize=24)
+    plt.title(sample_name, fontsize=28)
     ax.set_ylabel('An')
     ax.set_xlabel('Distance μm')
 
     # Set the title font size
-    ax.xaxis.label.set_fontsize(18)
-    ax.yaxis.label.set_fontsize(18)
+    ax.xaxis.label.set_fontsize(22)
+    ax.yaxis.label.set_fontsize(22)
 
     # Set the tick label font size
-    ax.tick_params(axis='both', which='major', labelsize=18)
-    
+    ax.tick_params(axis='both', which='major', labelsize=20)
+
+    # set image size 
+    fig.set_size_inches(7, 7)
+
+    # set graph size margins 
+    plt.subplots_adjust(left=0.13, bottom=0.11, right=0.95, top=.92, wspace=0.2, hspace=0.2)
+
     ax.set_xlim(xmin=0)
     ax.set_ylim([40, 100])
+
+    # set font to times new roman 
+    plt.rcParams['font.family'] = 'Times New Roman' 
 
     plt.savefig(os.path.join("output", sample_name + '.png'))
 
@@ -81,6 +87,11 @@ def graph(data, sample_name):
 
 source = pd.read_excel("Matlab Plag Format.xlsx", sheet_name="Sheet2")
 dr = pd.DataFrame(source)
+
+# delete all .png files in output folder
+for file in os.listdir("output"):
+    if file.endswith(".png"):
+        os.remove(os.path.join("output", file))
 
 for index, row in dr.iterrows():
     try:
