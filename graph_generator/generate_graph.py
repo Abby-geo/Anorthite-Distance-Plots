@@ -118,3 +118,30 @@ for index, row in dr.iterrows():
 
 for sample in samples:
     graph(samples[sample], sample)
+
+
+tex_header = '''
+\\documentclass{article}
+\\usepackage{graphicx}
+\\usepackage{subfigure}
+
+\\begin{document}
+
+\\begin{figure}[htbp]
+\\centering
+'''
+
+tex_footer = '''
+\end{figure}
+
+\end{document}
+'''
+
+with open("output.tex", "w") as f:
+    f.write(tex_header)
+
+    for file in os.listdir("output"):
+        if file.endswith(".png"):
+            f.write("\subfigure[" + file + "]{\includegraphics[width=0.2\\textwidth]{./output/" + file + "}}")
+
+    f.write(tex_footer)
