@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "python3 generate_graph.py",
             "options": {
-                "cwd": "${workspaceFolder}/graph_generator"
+                "cwd": "${workspaceFolder}/"
             },
             "problemMatcher": []
         }
